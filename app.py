@@ -211,7 +211,9 @@ for semana in cal:
                     # Crear etiquetas de materias
                     materias_html = ""
                     for tarea_item in tareas_dia[:3]:  # Mostrar máximo 3
-                        materias_html += f"<span style='background-color: {COLORES_MATERIA.get(tarea_item[\"materia\"], \"#CCCCCC\")}; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.7em; margin: 2px; display: inline-block;'>{tarea_item['materia']}</span>"
+                        materia_nombre = tarea_item['materia']
+                        color_materia = COLORES_MATERIA.get(materia_nombre, "#CCCCCC")
+                        materias_html += f"<span style='background-color: {color_materia}; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.7em; margin: 2px; display: inline-block;'>{materia_nombre}</span>"
                     
                     html_dia = f"""
                     <div style="border: 2px solid {color_principal}; padding: 8px; border-radius: 5px; background-color: {color_principal}15; text-align: center; min-height: 70px; display: flex; flex-direction: column; justify-content: space-between; {'background-color: ' + color_principal + '30;' if es_hoy else ''}">
